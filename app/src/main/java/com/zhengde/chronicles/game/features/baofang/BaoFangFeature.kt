@@ -196,7 +196,7 @@ class BaoFangFeature @Inject constructor() : GameFeature {
 
             BaoFangAction.WANG_YANGMING_AUDIENCE ->
                 "$playLevel。王守仁入豹房，长揖不拜。" +
-                        "他开门见山：「陛下可知，大明的江山不在紫禁城，而在百姓心中。」 +
+                        "他开门见山：「陛下可知，大明的江山不在紫禁城，而在百姓心中。」" +
                         "\n\n一番长谈，陛下若有所悟。" +
                         "正是：听君一席话，胜读十年书。"
 
