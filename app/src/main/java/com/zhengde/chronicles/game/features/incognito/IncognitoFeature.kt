@@ -30,7 +30,7 @@ class IncognitoFeature @Inject constructor() : GameFeature {
         IncognitoEvent(
             id = "market_encounter",
             title = "市井奇遇",
-            desc = "陛下换上便服，混入闹市。茶馆里说书先生正讲着一桩奇案……",
+            desc = "陛下换上便服，混入闹市。茶馆里说书先生正讲着一桩奇案…………",
             prestigeChange = 0,
             playfulnessChange = 5,
             energyChange = -3,
@@ -79,7 +79,7 @@ class IncognitoFeature @Inject constructor() : GameFeature {
             energyChange = -5,
             courtChange = -8,
             wisdomChange = 0,
-            narrative = "陛下正在街头吃小吃，突然有人大喊："皇上？!"\n\n" +
+            narrative = "陛下正在街头吃小吃，突然有人大喊：「皇上？!」\n\n" +
                     "原来是一个曾在宫中当差的老太监认出了陛下。" +
                     "一时间街市轰动，百姓跪了一地。" +
                     "陛下只好匆匆回宫，第二天朝堂上又多了几本劝谏的奏折。",

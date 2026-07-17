@@ -106,7 +106,7 @@ class WangYangMingFeature @Inject constructor() : GameFeature {
                     listOf(ActiveEvent(
                         id = "wy_ning_warning_${state.turn}",
                         title = "【📜】王阳明密报",
-                        description = "王守仁从江西传来密报："宁王朱宸濠近日频繁宴请地方官将，似有异动。"",
+                        description = "王守仁从江西传来密报：「宁王朱宸濠近日频繁宴请地方官将，似有异动。」",
                         type = EventType.NARRATIVE_DRIVEN,
                         deadline = state.turn + 5,
                         turnCreated = state.turn
@@ -150,7 +150,7 @@ class WangYangMingFeature @Inject constructor() : GameFeature {
             WyStage.HIDDEN -> FeatureResult(
                 stateChanges = mapOf("prestige" to 3, "politicalWisdom" to 3, "心学" to 5),
                 setFlags = listOf("wy_appeared", "promoted_wang"),
-                narrative = "陛下御览王守仁的奏疏，连连点头："这人有点意思。"\n\n" +
+                narrative = "陛下御览王守仁的奏疏，连连点头：「这人有点意思。」\n\n" +
                         "当即下旨，擢升王守仁为都察院左佥都御史。" +
                         "消息传出，朝中有识之士无不欣慰。"
             )
@@ -235,7 +235,7 @@ class WangYangMingFeature @Inject constructor() : GameFeature {
         return FeatureResult(
             stateChanges = mapOf("prestige" to -5, "courtStability" to -5, "心学" to -10),
             setFlags = listOf("wy_punished"),
-            narrative = "陛下龙颜大怒："区区兵部主事，也敢妄议朝政？"\n\n" +
+            narrative = "陛下龙颜大怒：「区区兵部主事，也敢妄议朝政？」\n\n" +
                     "下旨将王守仁廷杖四十，贬为贵州龙场驿丞。" +
                     "满朝文武，噤若寒蝉。" +
                     "\n\n只是——这一顿廷杖，会不会打出个了不得的人物来？"

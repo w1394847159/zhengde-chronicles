@@ -144,7 +144,7 @@ class EightTigersFeature @Inject constructor() : GameFeature {
                 "prestige" to -3
             ),
             narrative = "陛下力保刘瑾。\n\n" +
-                    "面对群臣弹劾，陛下不以为然："刘瑾侍朕多年，不过贪财好利，何至于诛？"\n\n" +
+                    "面对群臣弹劾，陛下不以为然：「刘瑾侍朕多年，不过贪财好利，何至于诛？」\n\n" +
                     "刘瑾感激涕零，更加卖力地讨陛下欢心。" +
                     "只是——朝中文武，心凉了半截。"
         )
