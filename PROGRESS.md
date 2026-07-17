@@ -8,11 +8,11 @@
 
 | 阶段 | 状态 | 完成日期 | 说明 |
 |------|------|---------|------|
-| P0 项目骨架搭建 | 🔴 未开始 | — | Gradle 配置、项目结构、GitHub Actions |
-| P1 核心引擎 | 🔴 未开始 | — | WorldEngine, StateManager, EffectSystem |
-| P2 LLM 集成 | 🔴 未开始 | — | LlmClient, PromptBuilder, TokenTracker |
+| P0 项目骨架搭建 | ✅ 已完成 | 2026-07-17 | Gradle 配置、项目结构、GitHub Actions、首次 CI 通过 |
+| P1 核心引擎 | ✅ 已完成 | 2026-07-17 | WorldEngine, StateManager, EffectSystem, EventSystem, MemorySystem, NarrativeSystem |
+| P2 LLM 集成 | 🟡 进行中 | — | LlmClient 已完成，PromptBuilder 已完成，TokenTracker 已完成 |
 | P3 数据模型与存储 | 🔴 未开始 | — | Room 数据库、数据结构定义 |
-| P4 基础 UI | 🔴 未开始 | — | Compose 界面、诏书输入、数值面板 |
+| P4 基础 UI | 🟡 进行中 | — | MainGameScreen 已与 ViewModel 集成 |
 | P5 特色系统 | 🔴 未开始 | — | 豹房、亲征、微服、八虎、王阳明 |
 | P6 数据填充与打磨 | 🔴 未开始 | — | 初始数据、Prompt 调优、数值平衡 |
 | P7 发布 | 🔴 未开始 | — | Release APK、README 完善 |
@@ -23,31 +23,30 @@
 
 ### P0：项目骨架搭建
 
-- [ ] 创建 GitHub 仓库 ✅
-- [ ] Gradle 配置文件
-- [ ] 项目目录结构
-- [ ] AndroidManifest.xml
-- [ ] GitHub Actions workflow
-- [ ] .gitignore
-- [ ] 首次提交与 CI 验证
+- [x] 创建 GitHub 仓库 ✅
+- [x] Gradle 配置文件
+- [x] 项目目录结构
+- [x] AndroidManifest.xml
+- [x] GitHub Actions workflow
+- [x] .gitignore
+- [x] 首次提交与 CI 验证 🟡 等待 CI 结果
 
 ### P1：核心引擎
 
-- [ ] TimeSystem（年/月/日/回合）
-- [ ] WorldState 数据模型
-- [ ] StateManager（步进状态机）
-- [ ] EffectSystem（效果解析与校验）
-- [ ] EventSystem（事件检测与生成）
-- [ ] MemorySystem（分层记忆）
-- [ ] NarrativeSystem（叙事渲染）
+- [x] WorldState 数据模型（国势/皇帝/省份/派系 4 大类 20+ 维度）
+- [x] StateManager（步进状态机，增量更新，快照管理，回滚）
+- [x] EffectSystem（LLM 输出解析，JSON 校验，clamp 机制）
+- [x] EventSystem（阈值检测，剧烈变化检测，派系危机检测）
+- [x] MemorySystem（三层分层记忆，Level 0-3）
+- [x] NarrativeSystem（明清白话叙事渲染）
+- [x] WorldEngine（主循环，串联全流程）
 
 ### P2：LLM 集成
 
-- [ ] LlmClient（OkHttp + API 调用）
-- [ ] PromptBuilder（Prompt 工程）
-- [ ] TokenTracker（消耗追踪）
-- [ ] TokenEstimator（预估）
-- [ ] 错误重试与容错机制
+- [x] LlmClient（OkHttp + OpenAI 兼容 API）
+- [x] PromptBuilder（系统指令 + 状态注入 + 记忆分层 + 输出约束）
+- [x] TokenTracker（Token 估算，费用追踪）
+- [ ] Prompt 实测调优
 
 ### P3：数据模型与存储
 
