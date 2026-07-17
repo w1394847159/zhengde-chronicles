@@ -6,6 +6,7 @@ import com.zhengde.chronicles.agent.TokenTracker
 import com.zhengde.chronicles.game.memory.MemorySystem
 import com.zhengde.chronicles.game.world.ActiveEvent
 import com.zhengde.chronicles.game.world.WorldState
+import com.zhengde.chronicles.game.features.FeatureManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -106,7 +107,7 @@ class WorldEngine @Inject constructor(
                         edictSummary = edictContent,
                         effectCausation = effect.causation,
                         newState = newState,
-                        triggeredEvents = (events + featureEvents).map { it.id }
+                        triggeredEvents = (events + featureEvents ?: emptyList()).map { e -> e.id }
                     )
 
                     // ===== 6. 渲染叙事 =====
@@ -139,7 +140,7 @@ class WorldEngine @Inject constructor(
                         edictSummary = edictContent,
                         effectCausation = effect.causation,
                         newState = newState,
-                        triggeredEvents = (events + featureEvents).map { it.id }
+                        triggeredEvents = (events + featureEvents ?: emptyList()).map { e -> e.id }
                     )
 
                     // ===== 6. 渲染叙事 =====

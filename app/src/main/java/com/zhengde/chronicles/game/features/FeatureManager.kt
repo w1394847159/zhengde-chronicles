@@ -18,7 +18,7 @@ import com.zhengde.chronicles.game.world.ActiveEvent
  * 2. 检测触发条件
  * 3. 路由玩家选择到对应子系统
  */
-class FeatureManager @Inject constructor(
+class FeatureManager constructor(
     val baoFang: BaoFangFeature,
     val expedition: ExpeditionFeature,
     val incognito: IncognitoFeature,
