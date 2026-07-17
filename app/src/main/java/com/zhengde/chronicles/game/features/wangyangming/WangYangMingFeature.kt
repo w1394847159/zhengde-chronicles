@@ -52,7 +52,7 @@ class WangYangMingFeature constructor() : GameFeature {
                     title = "【📜】王阳明上疏",
                     description = "兵部主事王守仁上书陛下，陈言边务八事。" +
                             "其言切中时弊，文辞犀利。" +
-                            "奏疏末尾写道："陛下若不改弦更张，恐有肘腋之患。"",
+                            "奏疏末尾写道：「陛下若不改弦更张，恐有肘腋之患。」",
                     type = EventType.NARRATIVE_DRIVEN,
                     deadline = state.turn + 2,
                     turnCreated = state.turn
@@ -74,7 +74,7 @@ class WangYangMingFeature constructor() : GameFeature {
                 listOf(ActiveEvent(
                     id = "wy_enlightenment_${state.turn}",
                     title = "【📜】龙场悟道",
-                    description = "王守仁在龙场日夜静思，一日夜中忽有所悟："圣人之道，吾性自足。"",
+                    description = "王守仁在龙场日夜静思，一日夜中忽有所悟：「圣人之道，吾性自足。」",
                     type = EventType.NARRATIVE_DRIVEN,
                     deadline = state.turn + 1,
                     turnCreated = state.turn
