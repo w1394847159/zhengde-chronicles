@@ -13,7 +13,7 @@
 | P2 LLM 集成 | ✅ 已完成 | 2026-07-17 | LlmClient, PromptBuilder, TokenTracker |
 | P3 数据持久化 | 🟡 进行中 | — | Room 数据库、DAO、Repository、存档管理 |
 | P4 基础 UI | 🟡 进行中 | — | MainGameScreen 已与 ViewModel 集成 |
-| P5 特色系统 | 🔴 未开始 | — | 豹房、亲征、微服、八虎、王阳明 |
+| P5 特色系统 | ✅ 已完成 | 2026-07-17 | 豹房、亲征、微服、八虎、王阳明，含 FeatureManager 统一调度 |
 | P6 数据填充与打磨 | 🔴 未开始 | — | 初始数据、Prompt 调优、数值平衡 |
 | P7 发布 | 🔴 未开始 | — | Release APK、README 完善 |
 

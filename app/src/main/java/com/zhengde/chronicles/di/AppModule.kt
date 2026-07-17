@@ -8,6 +8,12 @@ import com.zhengde.chronicles.data.db.AppDatabase
 import com.zhengde.chronicles.data.db.GameDao
 import com.zhengde.chronicles.data.repository.GameRepository
 import com.zhengde.chronicles.game.engine.*
+import com.zhengde.chronicles.game.features.*
+import com.zhengde.chronicles.game.features.baofang.BaoFangFeature
+import com.zhengde.chronicles.game.features.eighttigers.EightTigersFeature
+import com.zhengde.chronicles.game.features.expedition.ExpeditionFeature
+import com.zhengde.chronicles.game.features.incognito.IncognitoFeature
+import com.zhengde.chronicles.game.features.wangyangming.WangYangMingFeature
 import com.zhengde.chronicles.game.memory.MemorySystem
 import dagger.Module
 import dagger.Provides
@@ -71,6 +77,38 @@ object AppModule {
         stateManager: StateManager
     ): PromptBuilder = PromptBuilder(memorySystem, stateManager)
 
+    // ===== 特色系统 =====
+
+    @Provides
+    @Singleton
+    fun provideBaoFangFeature(): BaoFangFeature = BaoFangFeature()
+
+    @Provides
+    @Singleton
+    fun provideExpeditionFeature(): ExpeditionFeature = ExpeditionFeature()
+
+    @Provides
+    @Singleton
+    fun provideIncognitoFeature(): IncognitoFeature = IncognitoFeature()
+
+    @Provides
+    @Singleton
+    fun provideEightTigersFeature(): EightTigersFeature = EightTigersFeature()
+
+    @Provides
+    @Singleton
+    fun provideWangYangMingFeature(): WangYangMingFeature = WangYangMingFeature()
+
+    @Provides
+    @Singleton
+    fun provideFeatureManager(
+        baoFang: BaoFangFeature,
+        expedition: ExpeditionFeature,
+        incognito: IncognitoFeature,
+        eightTigers: EightTigersFeature,
+        wangYangMing: WangYangMingFeature
+    ): FeatureManager = FeatureManager(baoFang, expedition, incognito, eightTigers, wangYangMing)
+
     @Provides
     @Singleton
     fun provideWorldEngine(
@@ -81,10 +119,12 @@ object AppModule {
         narrativeSystem: NarrativeSystem,
         llmClient: LlmClient,
         promptBuilder: PromptBuilder,
-        tokenTracker: TokenTracker
+        tokenTracker: TokenTracker,
+        featureManager: FeatureManager
     ): WorldEngine = WorldEngine(
         stateManager, effectSystem, eventSystem,
         memorySystem, narrativeSystem,
-        llmClient, promptBuilder, tokenTracker
+        llmClient, promptBuilder, tokenTracker,
+        featureManager
     )
 }

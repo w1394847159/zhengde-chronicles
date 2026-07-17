@@ -31,7 +31,8 @@ class WorldEngine @Inject constructor(
     private val narrativeSystem: NarrativeSystem,
     private val llmClient: LlmClient,
     private val promptBuilder: PromptBuilder,
-    private val tokenTracker: TokenTracker
+    private val tokenTracker: TokenTracker,
+    private val featureManager: FeatureManager
 ) {
 
     /** 引擎状态 */
@@ -96,6 +97,7 @@ class WorldEngine @Inject constructor(
 
                     // ===== 4. 事件检测 =====
                     val events = eventSystem.detect(newState, previousState)
+                    val featureEvents = featureManager.checkAllTriggers(newState)
 
                     // ===== 5. 记忆处理 =====
                     memorySystem.compress(
@@ -103,7 +105,7 @@ class WorldEngine @Inject constructor(
                         edictSummary = edictContent,
                         effectCausation = effect.causation,
                         newState = newState,
-                        triggeredEvents = events.map { it.id }
+                        triggeredEvents = (events + featureEvents).map { it.id }
                     )
 
                     // ===== 6. 渲染叙事 =====
@@ -117,7 +119,7 @@ class WorldEngine @Inject constructor(
                         effect = effect,
                         oldState = previousState,
                         newState = newState,
-                        events = events,
+                        events = events + featureEvents,
                         violations = parseResult.violations,
                         tokenCost = tokenTracker.lastCost
                     )
@@ -128,6 +130,7 @@ class WorldEngine @Inject constructor(
 
                     // ===== 4. 事件检测 =====
                     val events = eventSystem.detect(newState, previousState)
+                    val featureEvents = featureManager.checkAllTriggers(newState)
 
                     // ===== 5. 记忆处理 =====
                     memorySystem.compress(
@@ -135,7 +138,7 @@ class WorldEngine @Inject constructor(
                         edictSummary = edictContent,
                         effectCausation = effect.causation,
                         newState = newState,
-                        triggeredEvents = events.map { it.id }
+                        triggeredEvents = (events + featureEvents).map { it.id }
                     )
 
                     // ===== 6. 渲染叙事 =====
@@ -149,7 +152,7 @@ class WorldEngine @Inject constructor(
                         effect = effect,
                         oldState = previousState,
                         newState = newState,
-                        events = events,
+                        events = events + featureEvents,
                         tokenCost = tokenTracker.lastCost
                     )
                 }
