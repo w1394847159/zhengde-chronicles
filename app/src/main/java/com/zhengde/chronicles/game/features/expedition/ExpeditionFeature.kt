@@ -5,8 +5,6 @@ import com.zhengde.chronicles.game.engine.FeatureResult
 import com.zhengde.chronicles.game.world.WorldState
 import com.zhengde.chronicles.game.world.ActiveEvent
 import com.zhengde.chronicles.game.world.EventType
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * ⚔️ 亲征系统 — 朱厚照御驾亲征
@@ -20,8 +18,7 @@ import javax.inject.Singleton
  * - 后方稳定（朝纲/民心）
  * - 皇帝武艺值
  */
-@Singleton
-class ExpeditionFeature @Inject constructor() : GameFeature {
+class ExpeditionFeature constructor() : GameFeature {
 
     override val name: String = "亲征"
 

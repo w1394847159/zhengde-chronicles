@@ -5,8 +5,6 @@ import com.zhengde.chronicles.game.engine.FeatureResult
 import com.zhengde.chronicles.game.world.WorldState
 import com.zhengde.chronicles.game.world.ActiveEvent
 import com.zhengde.chronicles.game.world.EventType
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * 🗡 八虎博弈系统 — 正德初年最核心的朝堂博弈
@@ -19,8 +17,7 @@ import javax.inject.Singleton
  *
  * 这个系统贯穿整个游戏，不是一次性事件。
  */
-@Singleton
-class EightTigersFeature @Inject constructor() : GameFeature {
+class EightTigersFeature constructor() : GameFeature {
 
     override val name: String = "八虎博弈"
 

@@ -7,8 +7,6 @@ import com.zhengde.chronicles.game.features.eighttigers.EightTigersFeature
 import com.zhengde.chronicles.game.features.wangyangming.WangYangMingFeature
 import com.zhengde.chronicles.game.world.WorldState
 import com.zhengde.chronicles.game.world.ActiveEvent
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * 特色系统管理器 — 统一调度所有子系统
@@ -18,7 +16,6 @@ import javax.inject.Singleton
  * 2. 检测触发条件
  * 3. 路由玩家选择到对应子系统
  */
-@Singleton
 class FeatureManager @Inject constructor(
     val baoFang: BaoFangFeature,
     val expedition: ExpeditionFeature,

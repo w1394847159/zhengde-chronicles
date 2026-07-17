@@ -5,8 +5,6 @@ import com.zhengde.chronicles.game.engine.FeatureResult
 import com.zhengde.chronicles.game.world.WorldState
 import com.zhengde.chronicles.game.world.ActiveEvent
 import com.zhengde.chronicles.game.world.EventType
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * 📜 王阳明事件链 — 正德朝最关键的剧情线
@@ -21,8 +19,7 @@ import javax.inject.Singleton
  * 4. 平叛：王阳明是否被启用 → 决定平叛难度和结局
  * 5. 心学崛起：王阳明的地位取决于他的功绩
  */
-@Singleton
-class WangYangMingFeature @Inject constructor() : GameFeature {
+class WangYangMingFeature constructor() : GameFeature {
 
     override val name: String = "王阳明事件链"
 

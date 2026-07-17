@@ -3,8 +3,6 @@ package com.zhengde.chronicles.game.features.baofang
 import com.zhengde.chronicles.game.world.WorldState
 import com.zhengde.chronicles.game.world.ActiveEvent
 import com.zhengde.chronicles.game.world.EventType
-import javax.inject.Inject
-import javax.inject.Singleton
 import com.zhengde.chronicles.game.engine.GameFeature
 import com.zhengde.chronicles.game.engine.FeatureResult
 
@@ -23,8 +21,7 @@ import com.zhengde.chronicles.game.engine.FeatureResult
  * - 但会解锁特殊能力和情报
  * - 玩心越高，豹房收益越大、朝纲损失也越大
  */
-@Singleton
-class BaoFangFeature @Inject constructor() : GameFeature {
+class BaoFangFeature constructor() : GameFeature {
 
     override val name: String = "豹房"
 

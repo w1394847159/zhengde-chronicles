@@ -77,37 +77,51 @@ object AppModule {
         stateManager: StateManager
     ): PromptBuilder = PromptBuilder(memorySystem, stateManager)
 
-    // ===== 特色系统 =====
+    // ===== 特色系统（手动创建，避免 Hilt KSP 类型链解析问题） =====
 
     @Provides
     @Singleton
-    fun provideBaoFangFeature(): BaoFangFeature = BaoFangFeature()
+    fun provideBaoFangFeature(): com.zhengde.chronicles.game.features.baofang.BaoFangFeature {
+        return com.zhengde.chronicles.game.features.baofang.BaoFangFeature()
+    }
 
     @Provides
     @Singleton
-    fun provideExpeditionFeature(): ExpeditionFeature = ExpeditionFeature()
+    fun provideExpeditionFeature(): com.zhengde.chronicles.game.features.expedition.ExpeditionFeature {
+        return com.zhengde.chronicles.game.features.expedition.ExpeditionFeature()
+    }
 
     @Provides
     @Singleton
-    fun provideIncognitoFeature(): IncognitoFeature = IncognitoFeature()
+    fun provideIncognitoFeature(): com.zhengde.chronicles.game.features.incognito.IncognitoFeature {
+        return com.zhengde.chronicles.game.features.incognito.IncognitoFeature()
+    }
 
     @Provides
     @Singleton
-    fun provideEightTigersFeature(): EightTigersFeature = EightTigersFeature()
+    fun provideEightTigersFeature(): com.zhengde.chronicles.game.features.eighttigers.EightTigersFeature {
+        return com.zhengde.chronicles.game.features.eighttigers.EightTigersFeature()
+    }
 
     @Provides
     @Singleton
-    fun provideWangYangMingFeature(): WangYangMingFeature = WangYangMingFeature()
+    fun provideWangYangMingFeature(): com.zhengde.chronicles.game.features.wangyangming.WangYangMingFeature {
+        return com.zhengde.chronicles.game.features.wangyangming.WangYangMingFeature()
+    }
 
     @Provides
     @Singleton
     fun provideFeatureManager(
-        baoFang: BaoFangFeature,
-        expedition: ExpeditionFeature,
-        incognito: IncognitoFeature,
-        eightTigers: EightTigersFeature,
-        wangYangMing: WangYangMingFeature
-    ): FeatureManager = FeatureManager(baoFang, expedition, incognito, eightTigers, wangYangMing)
+        baoFang: com.zhengde.chronicles.game.features.baofang.BaoFangFeature,
+        expedition: com.zhengde.chronicles.game.features.expedition.ExpeditionFeature,
+        incognito: com.zhengde.chronicles.game.features.incognito.IncognitoFeature,
+        eightTigers: com.zhengde.chronicles.game.features.eighttigers.EightTigersFeature,
+        wangYangMing: com.zhengde.chronicles.game.features.wangyangming.WangYangMingFeature
+    ): com.zhengde.chronicles.game.features.FeatureManager {
+        return com.zhengde.chronicles.game.features.FeatureManager(
+            baoFang, expedition, incognito, eightTigers, wangYangMing
+        )
+    }
 
     @Provides
     @Singleton

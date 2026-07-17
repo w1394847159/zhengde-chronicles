@@ -5,8 +5,6 @@ import com.zhengde.chronicles.game.engine.FeatureResult
 import com.zhengde.chronicles.game.world.WorldState
 import com.zhengde.chronicles.game.world.ActiveEvent
 import com.zhengde.chronicles.game.world.EventType
-import javax.inject.Inject
-import javax.inject.Singleton
 import kotlin.random.Random
 
 /**
@@ -20,8 +18,7 @@ import kotlin.random.Random
  * - 皇帝威望（威望高微服更安全）
  * - 玩心（玩心高微服更有趣但也更危险）
  */
-@Singleton
-class IncognitoFeature @Inject constructor() : GameFeature {
+class IncognitoFeature constructor() : GameFeature {
 
     override val name: String = "微服私访"
 
