@@ -33,9 +33,8 @@ class WorldEngine @Inject constructor(
     private val promptBuilder: PromptBuilder,
     private val tokenTracker: TokenTracker
 ) {
-    /** 特色系统管理器（延迟注入，避免 Hilt KSP 类型链解析问题） */
-    @Inject
-    lateinit var featureManager: FeatureManager
+    /** 特色系统管理器（手动设置，避免 Hilt KSP 类型链问题） */
+    var featureManager: FeatureManager? = null
 
     /** 引擎状态 */
     sealed class State {
@@ -99,7 +98,7 @@ class WorldEngine @Inject constructor(
 
                     // ===== 4. 事件检测 =====
                     val events = eventSystem.detect(newState, previousState)
-                    val featureEvents = featureManager.checkAllTriggers(newState)
+                    val featureEvents = featureManager?.checkAllTriggers(newState)
 
                     // ===== 5. 记忆处理 =====
                     memorySystem.compress(
@@ -132,7 +131,7 @@ class WorldEngine @Inject constructor(
 
                     // ===== 4. 事件检测 =====
                     val events = eventSystem.detect(newState, previousState)
-                    val featureEvents = featureManager.checkAllTriggers(newState)
+                    val featureEvents = featureManager?.checkAllTriggers(newState)
 
                     // ===== 5. 记忆处理 =====
                     memorySystem.compress(
