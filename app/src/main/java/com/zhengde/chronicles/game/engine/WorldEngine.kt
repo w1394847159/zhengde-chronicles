@@ -31,9 +31,11 @@ class WorldEngine @Inject constructor(
     private val narrativeSystem: NarrativeSystem,
     private val llmClient: LlmClient,
     private val promptBuilder: PromptBuilder,
-    private val tokenTracker: TokenTracker,
-    private val featureManager: FeatureManager
+    private val tokenTracker: TokenTracker
 ) {
+    /** 特色系统管理器（延迟注入，避免 Hilt KSP 类型链解析问题） */
+    @Inject
+    lateinit var featureManager: FeatureManager
 
     /** 引擎状态 */
     sealed class State {

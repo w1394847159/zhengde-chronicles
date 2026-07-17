@@ -119,12 +119,10 @@ object AppModule {
         narrativeSystem: NarrativeSystem,
         llmClient: LlmClient,
         promptBuilder: PromptBuilder,
-        tokenTracker: TokenTracker,
-        featureManager: FeatureManager
+        tokenTracker: TokenTracker
     ): WorldEngine = WorldEngine(
         stateManager, effectSystem, eventSystem,
         memorySystem, narrativeSystem,
-        llmClient, promptBuilder, tokenTracker,
-        featureManager
+        llmClient, promptBuilder, tokenTracker
     )
 }
