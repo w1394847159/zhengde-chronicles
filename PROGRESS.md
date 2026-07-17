@@ -10,8 +10,8 @@
 |------|------|---------|------|
 | P0 项目骨架搭建 | ✅ 已完成 | 2026-07-17 | Gradle 配置、项目结构、GitHub Actions、首次 CI 通过 |
 | P1 核心引擎 | ✅ 已完成 | 2026-07-17 | WorldEngine, StateManager, EffectSystem, EventSystem, MemorySystem, NarrativeSystem |
-| P2 LLM 集成 | 🟡 进行中 | — | LlmClient 已完成，PromptBuilder 已完成，TokenTracker 已完成 |
-| P3 数据模型与存储 | 🔴 未开始 | — | Room 数据库、数据结构定义 |
+| P2 LLM 集成 | ✅ 已完成 | 2026-07-17 | LlmClient, PromptBuilder, TokenTracker |
+| P3 数据持久化 | 🟡 进行中 | — | Room 数据库、DAO、Repository、存档管理 |
 | P4 基础 UI | 🟡 进行中 | — | MainGameScreen 已与 ViewModel 集成 |
 | P5 特色系统 | 🔴 未开始 | — | 豹房、亲征、微服、八虎、王阳明 |
 | P6 数据填充与打磨 | 🔴 未开始 | — | 初始数据、Prompt 调优、数值平衡 |
@@ -48,14 +48,18 @@
 - [x] TokenTracker（Token 估算，费用追踪）
 - [ ] Prompt 实测调优
 
-### P3：数据模型与存储
+### P3：数据持久化
 
-- [ ] Room 数据库
-- [ ] GameDao
-- [ ] 实体定义
-- [ ] GameRepository
-- [ ] DefaultData（初始数据）
-- [ ] 存档管理
+- [x] Room 数据库配置
+- [x] 类型转换器（Converters）
+- [x] WorldStateEntity（全量快照 JSON 存储）
+- [x] EdictLogEntity（诏书记录）
+- [x] GameSaveEntity（存档元信息）
+- [x] TokenRecordEntity（Token 消耗记录）
+- [x] GameDao（全部 CRUD 操作）
+- [x] AppDatabase（Room 数据库单例）
+- [x] GameRepository（数据仓库层）
+- [x] Application 初始化数据库连接
 
 ### P4：基础 UI
 
