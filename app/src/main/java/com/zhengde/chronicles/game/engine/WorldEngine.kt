@@ -107,7 +107,7 @@ class WorldEngine @Inject constructor(
                         edictSummary = edictContent,
                         effectCausation = effect.causation,
                         newState = newState,
-                        triggeredEvents = (events + featureEvents ?: emptyList()).map { e -> e.id }
+                        triggeredEvents = (events + (featureEvents ?: emptyList<ActiveEvent>())).map { e -> e.id }
                     )
 
                     // ===== 6. 渲染叙事 =====
@@ -121,7 +121,7 @@ class WorldEngine @Inject constructor(
                         effect = effect,
                         oldState = previousState,
                         newState = newState,
-                        events = events + featureEvents,
+                        events = events + (featureEvents ?: emptyList()),
                         violations = parseResult.violations,
                         tokenCost = tokenTracker.lastCost
                     )
@@ -140,7 +140,7 @@ class WorldEngine @Inject constructor(
                         edictSummary = edictContent,
                         effectCausation = effect.causation,
                         newState = newState,
-                        triggeredEvents = (events + featureEvents ?: emptyList()).map { e -> e.id }
+                        triggeredEvents = (events + (featureEvents ?: emptyList<ActiveEvent>())).map { e -> e.id }
                     )
 
                     // ===== 6. 渲染叙事 =====
@@ -154,7 +154,7 @@ class WorldEngine @Inject constructor(
                         effect = effect,
                         oldState = previousState,
                         newState = newState,
-                        events = events + featureEvents,
+                        events = events + (featureEvents ?: emptyList()),
                         tokenCost = tokenTracker.lastCost
                     )
                 }
