@@ -10,10 +10,10 @@ import com.zhengde.chronicles.game.engine.TurnSnapshot
  */
 data class WorldState(
     // ========== 回合信息 ==========
-    val turn: Int = 0,
-    val year: Int = 1505,
-    val month: Int = 5,       // 朱厚照五月登基
-    val day: Int = 1,
+    override val turn: Int = 0,
+    override val year: Int = 1505,
+    override val month: Int = 5,       // 朱厚照五月登基
+    override val day: Int = 1,
 
     // ========== 国势维度 ==========
     val treasury: Int = 3000,         // 国库（万两）
@@ -45,7 +45,7 @@ data class WorldState(
     val changeLog: List<ChangeEntry> = emptyList(),
 
     // ========== 快照元信息 ==========
-    val timestamp: Long = System.currentTimeMillis(),
+    override val timestamp: Long = System.currentTimeMillis(),
     val snapshotId: String = ""
 ) : TurnSnapshot {
 

@@ -1,7 +1,9 @@
 package com.zhengde.chronicles.game.engine
 
+import com.zhengde.chronicles.game.edict.EdictEffect
 import com.zhengde.chronicles.game.world.WorldState
 import com.zhengde.chronicles.game.world.ChangeEntry
+import com.zhengde.chronicles.game.world.EventStatus
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -72,7 +74,7 @@ class StateManager @Inject constructor() {
 
         // ===== 省份更新 =====
         val newProvinces = prev.provinces.toMutableMap()
-        for ((province, delta) in effect.popularSupportDelta) {
+        for ((province, delta) in effect.popularSupportDelta.entries) {
             newProvinces[province] = newProvinces[province]?.let {
                 it.copy(popularSupport = clamp(it.popularSupport + delta, 0, 100))
             } ?: continue
@@ -80,7 +82,7 @@ class StateManager @Inject constructor() {
 
         // ===== 派系更新 =====
         val newFactions = prev.factionRelations.toMutableMap()
-        for ((faction, delta) in effect.factionRelationDelta) {
+        for ((faction, delta) in effect.factionRelationDelta.entries) {
             newFactions[faction] = clamp((newFactions[faction] ?: 50) + delta, -100, 100)
         }
 
@@ -95,7 +97,7 @@ class StateManager @Inject constructor() {
         // ===== 事件管理 =====
         val newActiveEvents = prev.activeEvents.toMutableList()
         // 移除过期事件
-        newActiveEvents.removeAll { it.status == EventStatus.EXPIRED }
+        newActiveEvents.removeAll { event -> event.status == EventStatus.EXPIRED }
         // 添加新事件
         newActiveEvents.addAll(effect.newEvents)
 
