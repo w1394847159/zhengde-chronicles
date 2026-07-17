@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- 龙纹/皇权符号 — 简化为一个"正"字轮廓 -->
+    <path
+        android:fillColor="#D4A84B"
+        android:pathData="M30,20h48v8H30zM20,50h68v8H20zM30,80h48v8H30z" />
+    <path
+        android:fillColor="#D4A84B"
+        android:pathData="M50,20v68h8V20z" />
+</vector>
