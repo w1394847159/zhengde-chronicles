@@ -5,6 +5,8 @@ import com.zhengde.chronicles.game.features.expedition.ExpeditionFeature
 import com.zhengde.chronicles.game.features.incognito.IncognitoFeature
 import com.zhengde.chronicles.game.features.eighttigers.EightTigersFeature
 import com.zhengde.chronicles.game.features.wangyangming.WangYangMingFeature
+import com.zhengde.chronicles.game.engine.GameFeature
+import com.zhengde.chronicles.game.engine.FeatureResult
 import com.zhengde.chronicles.game.world.WorldState
 import com.zhengde.chronicles.game.world.ActiveEvent
 
