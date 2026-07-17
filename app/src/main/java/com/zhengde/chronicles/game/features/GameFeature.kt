@@ -34,8 +34,9 @@ interface GameFeature {
  * 特色系统执行结果
  */
 data class FeatureResult(
-    val stateChanges: Map<String, Int> = emptyMap(),  // 数值变化
+    val stateChanges: Map<String, Int> = emptyMap(),
     val setFlags: List<String> = emptyList(),
-    val narrative: String = "",                        // 叙事描述
+    val clearFlags: List<String> = emptyList(),
+    val narrative: String = "",
     val newEvents: List<ActiveEvent> = emptyList()
 )

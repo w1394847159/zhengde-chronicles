@@ -234,7 +234,7 @@ class WangYangMingFeature @Inject constructor() : GameFeature {
     private fun punishWang(state: WorldState, stage: WyStage): FeatureResult {
         return FeatureResult(
             stateChanges = mapOf("prestige" to -5, "courtStability" to -5, "心学" to -10),
-            setFlags = listOf("wy_punished", "心学" to -10),
+            setFlags = listOf("wy_punished"),
             narrative = "陛下龙颜大怒："区区兵部主事，也敢妄议朝政？"\n\n" +
                     "下旨将王守仁廷杖四十，贬为贵州龙场驿丞。" +
                     "满朝文武，噤若寒蝉。" +
