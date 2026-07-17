@@ -1,7 +1,7 @@
 package com.zhengde.chronicles.game.features.eighttigers
 
-import com.zhengde.chronicles.game.features.GameFeature
-import com.zhengde.chronicles.game.features.FeatureResult
+import com.zhengde.chronicles.game.engine.GameFeature
+import com.zhengde.chronicles.game.engine.FeatureResult
 import com.zhengde.chronicles.game.world.WorldState
 import com.zhengde.chronicles.game.world.ActiveEvent
 import com.zhengde.chronicles.game.world.EventType

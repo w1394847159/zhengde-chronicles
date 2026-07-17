@@ -5,8 +5,8 @@ import com.zhengde.chronicles.game.world.ActiveEvent
 import com.zhengde.chronicles.game.world.EventType
 import javax.inject.Inject
 import javax.inject.Singleton
-import com.zhengde.chronicles.game.features.GameFeature
-import com.zhengde.chronicles.game.features.FeatureResult
+import com.zhengde.chronicles.game.engine.GameFeature
+import com.zhengde.chronicles.game.engine.FeatureResult
 
 /**
  * 🐆 豹房系统 — 正德朝最具辨识度的玩法
