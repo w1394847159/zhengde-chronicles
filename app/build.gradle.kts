@@ -13,8 +13,10 @@ android {
         applicationId = "com.zhengde.chronicles"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "0.1.0-alpha"
+
+        val buildNumber = System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1
+        versionCode = buildNumber
+        versionName = "0.2.0-build.${buildNumber}"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
