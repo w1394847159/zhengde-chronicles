@@ -19,7 +19,9 @@ import javax.inject.Singleton
  * - 支持回滚到指定回合（保留最近 50 个检查点）
  */
 @Singleton
-class StateManager @Inject constructor() {
+class StateManager @Inject constructor(
+    private val ministerManager: MinisterManager
+) {
 
     /** 当前状态 */
     private var _currentState: WorldState = WorldState.createDefault()
@@ -42,10 +44,13 @@ class StateManager @Inject constructor() {
         } else {
             WorldState.createDefault().copy(year = startYear)
         }
-        _currentState = state
-        snapshots[0] = state
+        val withMinisters = state.copy(
+            ministerStates = ministerManager.getDefaultMinisterStates()
+        )
+        _currentState = withMinisters
+        snapshots[0] = withMinisters
         changeLog.clear()
-        return state
+        return withMinisters
     }
 
     /**
@@ -137,6 +142,7 @@ class StateManager @Inject constructor() {
             factionRelations = newFactions,
             flags = newFlags,
             activeEvents = newActiveEvents,
+            ministerStates = prev.ministerStates,
             changeLog = changeLog.takeLast(100),
             timestamp = System.currentTimeMillis(),
             snapshotId = "turn_${prev.turn + 1}_${System.currentTimeMillis()}"

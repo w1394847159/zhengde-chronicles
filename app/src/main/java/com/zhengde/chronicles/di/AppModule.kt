@@ -38,7 +38,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideStateManager(): StateManager = StateManager()
+    fun provideStateManager(ministerManager: com.zhengde.chronicles.game.engine.MinisterManager): StateManager = StateManager(ministerManager)
 
     @Provides
     @Singleton

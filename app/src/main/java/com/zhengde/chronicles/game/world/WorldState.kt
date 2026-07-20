@@ -36,6 +36,9 @@ data class WorldState(
     // ========== 派系关系 ==========
     val factionRelations: Map<String, Int> = defaultFactionRelations(),
 
+    // ========== 大臣状态 ==========
+    val ministerStates: Map<String, MinisterState> = emptyMap(),
+
     // ========== 剧情标记 ==========
     val flags: Map<String, Boolean> = emptyMap(),
     val activeEvents: List<ActiveEvent> = emptyList(),
